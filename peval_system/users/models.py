@@ -123,11 +123,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     #user_id = models.UUIDField(primary_key=True, unique=True)
     #Classification
     department = models.CharField(max_length=240, choices=DEPARTMENTCHOICES, default=DEPARTMENTCHOICES[0])
-    faculty_rank = models.CharField(max_length=20, choices=FACULTYRANKCHOICES, default=FACULTYRANKCHOICES[0])
-    faculty_classification = models.CharField(max_length=20, choices=FACULTYCLASSIFICATIONCHOICES, default=FACULTYCLASSIFICATIONCHOICES[0])
-    faculty_tenure = models.CharField(max_length=20, choices=FACULTYTENURECHOICES, default=FACULTYTENURECHOICES[0])
-    faculty_status = models.CharField(max_length=20, choices=FACULTYSTATUSCHOICES, default=FACULTYSTATUSCHOICES[0])
-    role = models.CharField(max_length=20, choices=ROLECHOICES, default=ROLECHOICES[0])
+    faculty_rank = models.CharField(max_length=200, choices=FACULTYRANKCHOICES, default=FACULTYRANKCHOICES[0])
+    faculty_classification = models.CharField(max_length=200, choices=FACULTYCLASSIFICATIONCHOICES, default=FACULTYCLASSIFICATIONCHOICES[0])
+    faculty_tenure = models.CharField(max_length=200, choices=FACULTYTENURECHOICES, default=FACULTYTENURECHOICES[0])
+    faculty_status = models.CharField(max_length=200, choices=FACULTYSTATUSCHOICES, default=FACULTYSTATUSCHOICES[0])
+    role = models.CharField(max_length=200, choices=ROLECHOICES, default=ROLECHOICES[0])
 
     #boolean
     is_staff = models.BooleanField(default=False)
@@ -143,7 +143,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=254, null=True, blank=True)
     last_name = models.CharField(max_length=254, null=True, blank=True)
     middle_name = models.CharField(max_length=254, null=True, blank=True)
-    suffix = models.CharField(max_length=20, null=True, blank=True)
+    suffix = models.CharField(max_length=200, null=True, blank=True)
     sex = models.CharField(max_length=10, choices=SEXCHOICES, default=SEXCHOICES[0])
     birth_date = models.DateField(null=True, blank=True)
     birth_place = models.CharField(max_length=254, null=True, blank=True)
@@ -154,16 +154,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     profile_photo = models.ImageField(blank = True, upload_to = None)
 
     #Contact Details
-    phone_number = models.CharField(max_length=20, null=True, blank=True)
-    landline_number = models.CharField(max_length=20, null=True, blank=True)
+    phone_number = models.CharField(max_length=200, null=True, blank=True)
+    landline_number = models.CharField(max_length=200, null=True, blank=True)
     email = models.EmailField(max_length=254, unique=True)
     alternative_email = models.EmailField(max_length=254, unique=True)
 
     #Emergency Contact Details
     emergency_contact_name = models.CharField(max_length=254, null=True, blank=True)
-    emergency_contact_number = models.CharField(max_length=20, null=True, blank=True)
+    emergency_contact_number = models.CharField(max_length=200, null=True, blank=True)
     emergency_contact_birthdate = models.DateField(null=True, blank=True)
-    emergency_contact_relationship = models.CharField(max_length=20, null=True, blank=True)
+    emergency_contact_relationship = models.CharField(max_length=200, null=True, blank=True)
 
     USERNAME_FIELD = 'email'
     EMAIL_FIELD = 'email'
